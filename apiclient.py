@@ -1,8 +1,72 @@
 import requests
 import json
-from settings import URI, POST_URI, COLL_URI, set_token
+from settings import URI, POST_URI, COLL_URI, ME_URI, set_token
 
 # URI = constants.URI
+
+def retrieve_user():
+    auth_token = set_token("00000000-0000-0000-0000-000000000000")
+
+    try:
+        u = requests.get(ME_URI,
+        headers={"Authorization":"Token %s" % auth_token,
+            "Content-Type":"application/json"})
+
+    except Exception as e:
+        print("retrieve_user: Exception %s" % e)
+        return e
+
+    user = u.json()["data"]
+
+    return user
+
+def retrieve_uposts():
+    auth_token = set_token("00000000-0000-0000-0000-000000000000")
+
+    try:
+        p = requests.get(ME_URI + "/posts",
+        headers={"Authorization":"Token %s" % auth_token,
+            "Content-Type":"application/json"})
+
+    except Exception as e:
+        print("retrieve_uposts: Exception %s" % e)
+        return e
+
+    uposts = p.json()["data"]
+
+    return uposts
+
+def retrieve_ucollections():
+    auth_token = set_token("00000000-0000-0000-0000-000000000000")
+    
+    try:
+        c = requests.get(ME_URI + "/collections",
+        headers={"Authorization":"Token %s" % auth_token,
+            "Content-Type":"application/json"})
+
+    except Exception as e:
+        print("retrieve_ucollections: Exception %s" % e)
+        return e
+
+    ucollections = c.json()["data"]
+
+    return ucollections
+
+
+def retrieve_uchannels():
+    try:
+        c = requests.get(ME_URI + "/channels",
+        headers={"Authorization":"Token %s" % auth_token,
+            "Content-Type":"application/json"})
+
+    except Exception as e:
+        print("retrieve_ucollections: Exception %s" % e)
+        return e
+
+    uchannels = c.json()["data"]
+
+    return uchannels
+
 
 
 def create_post(body, title):
@@ -67,7 +131,7 @@ def claim_post(id, token):
     data = [{"id": id,
             "token": token}]
 
-    auth_token = set_token("b651ed4d-d5f0-4009-48f6-1c6d06f1f65e")
+    auth_token = set_token("00000000-0000-0000-0000-000000000000")
 
     try:
         p = requests.post(POST_URI + "/claim", data=json.dumps(data),
@@ -122,7 +186,7 @@ def create_collection(alias, title):
 
 
 def retrieve_collection(alias):
-    auth_token = set_token("b651ed4d-d5f0-4009-48f6-1c6d06f1f65e")
+    auth_token = set_token("00000000-0000-0000-0000-000000000000")
 
     try:
         c = requests.get(COLL_URI + "/%s" % alias,
@@ -163,7 +227,7 @@ def retrieve_cposts(alias):
     return cposts
 
 def delete_collection(alias):
-    auth_token = set_token("b651ed4d-d5f0-4009-48f6-1c6d06f1f65e")
+    auth_token = set_token("00000000-0000-0000-0000-000000000000")
 
     try:
         c = requests.delete(COLL_URI + "/%s" % alias,
@@ -199,7 +263,7 @@ def claim_cpost(alias, id, token):
     return post
 
 def create_cpost(body, title, alias):
-    auth_token = set_token("b651ed4d-d5f0-4009-48f6-1c6d06f1f65e")
+    auth_token = set_token("00000000-0000-0000-0000-000000000000")
 
     data = {"body": body,
             "title": title}
@@ -218,7 +282,7 @@ def create_cpost(body, title, alias):
     return post
 
 def pin_post(alias, id, position):
-    auth_token = set_token("b651ed4d-d5f0-4009-48f6-1c6d06f1f65e")
+    auth_token = set_token("00000000-0000-0000-0000-000000000000")
 
     data = [{"id": id,
             "position": position,}]
@@ -237,7 +301,7 @@ def pin_post(alias, id, position):
     return post
 
 def unpin_post(alias, id):
-    auth_token = set_token("b651ed4d-d5f0-4009-48f6-1c6d06f1f65e")
+    auth_token = set_token("00000000-0000-0000-0000-000000000000")
 
     data = [{"id": id}]
 
@@ -255,23 +319,3 @@ def unpin_post(alias, id):
     return post
 
 
-
-
-
-# ---
-# something.py
-# ---
-# from apiclient import authorize_user, create_post
-#
-# def get_creds():
-#     """Ask the user for user and pass"""
-#     creds_stuff.append('user')
-#     creds_stuff.append('pass')
-#     '''
-#     ['user','pass']
-#     '''
-#     return creds_stuff
-#
-# def main():
-#     cred_list = get_creds()
-#     token = authorize_user(cred_list[0], cred_list[1],content_type='test/plain')
