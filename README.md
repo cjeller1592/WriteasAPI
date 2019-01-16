@@ -1,7 +1,7 @@
 # Writeas-API-Client-for-Python
 A Python API Client library for Write.as 
 
-A low level API client library for [Write.as](https://write.as) that is still in the works. Please help!
+An API client library for [Write.as](https://write.as) that is still in the works. Please help!
 
 ```
 from writeas import NewClient
@@ -16,3 +16,5 @@ p = c.create_post("This is a test!", "Test Post")
 print p
 
 ```
+
+More documentation coming soon!
