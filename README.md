@@ -1,4 +1,4 @@
-# Writeas-API-Client-for-Python
+# Writeas.py
 A Python API Client library for Write.as 
 
 An API client library for [Write.as](https://write.as) that is still in the works. Please help!
