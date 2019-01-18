@@ -3,6 +3,8 @@ An API client library for [Write.as](https://write.as) written for Python.
 
 ## **Authentication**
 
+_Getting Started:_
+
 ```
 c = NewClient()
 
@@ -16,6 +18,15 @@ c.setToken("00000000-0000-0000-0000-000000000000")
 # Prints out the token and you are set to use the API!
 ```
 
+_Logging Out:_
+To log out, all you need is to put the access token in as an argument
+
+```
+c.logout("00000000-0000-0000-0000-000000000000")
+
+# Returns a 204 status code
+# The access token shouldn't work in a future request after logging out
+```
 
 ## **Posts**
 
@@ -97,10 +108,10 @@ delete = c.deleteCollection('collectionalias')
 ```
 
 _Retrieve a Collection Post:_
-To retrieve a collection post, all you need is the slug of the post and the collection's alias. Say we want to grab this post: https://write.as/matt/stepping-back
+To retrieve a collection post, all you need is the collection's alias and the post's slug. Say we want to grab this post: https://write.as/matt/stepping-back
 
 ```
-post = c.retrieveCPost('why-i-still-love-computers', 'natedickson')
+post = c.retrieveCPost('matt', 'stepping-back')
 
 # This will return the post's data 
 ```
