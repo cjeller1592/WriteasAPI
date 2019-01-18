@@ -24,7 +24,7 @@ class NewClient(object):
 
         return user
 
-    def set_token(self, auth_token):
+    def setToken(self, auth_token):
 
     # The token will look like this: "00000000-0000-0000-0000-000000000000"
         self.token = auth_token
@@ -42,7 +42,7 @@ class NewClient(object):
         user = r.json()["data"]
 
 
-    def retrieve_user(self):
+    def retrieveUser(self):
 
         try:
             u = requests.get(ME_URI,
@@ -57,7 +57,7 @@ class NewClient(object):
 
         return user
 
-    def retrieve_uposts(self):
+    def retrievePosts(self):
 
         try:
             p = requests.get(ME_URI + "/posts",
@@ -72,7 +72,7 @@ class NewClient(object):
 
         return uposts
 
-    def retrieve_ucollections(self):
+    def retrieveCollections(self):
 
         try:
             c = requests.get(ME_URI + "/collections",
@@ -87,7 +87,7 @@ class NewClient(object):
 
         return ucollections
 
-    def retrieve_uchannels(self):
+    def retrieveChannels(self):
         try:
             c = requests.get(ME_URI + "/channels",
             headers={"Authorization":"Token %s" % self.token,
@@ -102,7 +102,7 @@ class NewClient(object):
         return uchannels
 
 
-    def create_post(self, body, title):
+    def createPost(self, body, title):
         data = {"body": body,
                 "title": title}
 
@@ -117,7 +117,7 @@ class NewClient(object):
 
         return post
 
-    def retrieve_post(self, id):
+    def retrievePost(self, id):
 
         try:
             p = requests.get(POST_URI + "/%s" % id,
@@ -131,7 +131,7 @@ class NewClient(object):
 
         return post
 
-    def update_post(self, id, token, body):
+    def updatePost(self, id, token, body):
         data = {"token": token,
                 "body": body}
 
@@ -147,7 +147,7 @@ class NewClient(object):
 
         return post
 
-    def delete_post(self, id):
+    def deletePost(self, id):
 
         try:
             p = requests.delete(POST_URI + "/%s" % id,
@@ -163,7 +163,7 @@ class NewClient(object):
         return post
         #Should return an error or something
 
-    def claim_post(self, id, token):
+    def claimPost(self, id, token):
         data = [{"id": id,
                 "token": token}]
 
@@ -182,7 +182,7 @@ class NewClient(object):
         # Should return a 200 in the post data to show it is claimed
 
 
-    def unpublish_post(self, id, token):
+    def unpublishPost(self, id, token):
         data = {"token": token,
                 "body": ""}
 
@@ -200,7 +200,7 @@ class NewClient(object):
         # Should return a 410 with a message about post being unpublished
 
 
-    def create_collection(self, alias, title):
+    def createCollection(self, alias, title):
 
         data = {"alias": alias,
                 "title": title}
@@ -219,7 +219,7 @@ class NewClient(object):
         return collection
 
 
-    def retrieve_collection(self, alias):
+    def retrieveCollection(self, alias):
 
         try:
             c = requests.get(COLL_URI + "/%s" % alias,
@@ -234,7 +234,7 @@ class NewClient(object):
 
         return collection
 
-    def retrieve_cpost(self, alias, slug):
+    def retrieveCPost(self, alias, slug):
 
         try:
             c = requests.get(COLL_URI + "/%s/posts/%s" % (alias, slug),
@@ -248,7 +248,7 @@ class NewClient(object):
 
         return cpost
 
-    def retrieve_cposts(self, alias):
+    def retrieveCPosts(self, alias):
 
         try:
             c = requests.get(COLL_URI + "/%s/posts" % alias)
@@ -261,7 +261,7 @@ class NewClient(object):
 
         return cposts
 
-    def delete_collection(self, alias):
+    def deleteCollection(self, alias):
 
         try:
             c = requests.delete(COLL_URI + "/%s" % alias,
@@ -278,7 +278,7 @@ class NewClient(object):
         # Works if it returns an error that no json can be decoded
         # Perhaps write an if statement that if no json then success
 
-    def claim_cpost(self, alias, id, token):
+    def claimCPost(self, alias, id, token):
 
         data = [{"id": id,
                 "token": token}]
@@ -295,7 +295,7 @@ class NewClient(object):
 
         return post
 
-    def create_cpost(self, body, title, alias):
+    def createCPost(self, body, title, alias):
 
         data = {"body": body,
                 "title": title}
@@ -313,7 +313,7 @@ class NewClient(object):
 
         return post
 
-    def pin_post(self, alias, id, position):
+    def pinPost(self, alias, id, position):
 
         data = [{"id": id,
                 "position": position,}]
@@ -331,7 +331,7 @@ class NewClient(object):
 
         return post
 
-    def unpin_post(self, alias, id):
+    def unpinPost(self, alias, id):
 
         data = [{"id": id}]
 
