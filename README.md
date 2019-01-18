@@ -1,20 +1,5 @@
 # Writeas.py
-A Python API Client library for Write.as 
-
 An API client library for [Write.as](https://write.as) written for Python.
-
-```
-from writeas import NewClient
-
-
-c = NewClient()
-
-c.set_token("00000000-0000-0000-0000-000000000000")
-
-p = c.create_post("This is a test!", "Test Post")
-
-print p
-```
 
 ## **Authentication**
 
