@@ -114,4 +114,39 @@ posts = c.retrieveCPosts('matt')
 # This will return data from all the collection's posts
 ```
 
+## **User**
 
+_Retrieve User:_
+
+```
+me = c.retrieve_user()
+print me
+
+# Returns your user info 
+```
+_Retrieve User Posts:_
+
+```
+myPosts = c.retrievePosts()
+print myPosts
+
+# Returns your posts with this user account
+```
+
+_Retrieve User Collections:_
+
+```
+myCollections = c.retrieveCollections()
+print myCollections
+
+# Returns your collections
+```
+
+_Retrieve User Channels:_
+
+```
+myChannels = c.retrieveChannels()
+print myChannels
+
+# Returns the channels you send your posts to (Tumblr, Medium, etc)
+```
