@@ -68,6 +68,7 @@ p = c.create_post("This is a the body of the post.", "This is a Title")
 
 _Updating a Post:_
 All you need is the post's id, the post's token, and the part of the post you want to edit.
+For now it is set to edit the post body only.
 
 ```
 update = c.updatePost('7qmni7cpg5sjks11', '123456789abcdefgthisisfakeposttoken', 'I am updating this post's body!')
@@ -98,7 +99,7 @@ _Claiming a Post_:
 If you create an anonymous post but want to claim it, all you need is the post's id and token
 
 ```
-post = c.claimPost('7qmni7cpg5sjks11', ''123456789abcdefgthisisfakeposttoken')
+post = c.claimPost('7qmni7cpg5sjks11', '123456789abcdefgthisisfakeposttoken')
 
 # This will return the post's data
 ```
@@ -113,7 +114,7 @@ All you need is a collection alias and title.
 collection = c.createCollection('collectionalias', 'My Cool Blog')
 
 # This will return the collection's data
-# Keep the collection's alias at hand: it will serve as the token for doing cool stuff with our collection
+# Keep the collection's alias at hand: it will be a token for making requests with the collection
 ```
 
 _Retrieving a Collection:_
