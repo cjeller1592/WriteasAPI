@@ -61,6 +61,7 @@ _Creating a post:_
 
 ```
 p = c.create_post("This is a the body of the post.", "This is a Title")
+print p
 
 # This will return the post's data when successful
 # That data includes the post token which we'll need for doing cooling stuff with the post
@@ -72,8 +73,9 @@ For now it is set to edit the post body only.
 
 ```
 update = c.updatePost('7qmni7cpg5sjks11', '123456789abcdefgthisisfakeposttoken', 'I am updating this post's body!')
+print update
 
-# This will return the post's data when successful
+# This will return the post's updated data when successful
 ```
 
 _Deleting a Post:_
@@ -81,6 +83,7 @@ Since you are logged in, all you need is the post's id.
 
 ```
 delete = c.delete_post('7qmni7cpg5sjks11')
+print delete
 
 # This will return a 'None', meaning that it worked
 ```
@@ -91,6 +94,7 @@ For finding a post, all you need is the post's id.
 
 ```
 post = c.find_post('7qmni7cpg5sjks11')
+print post
 
 # This will return the post's data
 ```
@@ -100,6 +104,7 @@ If you create an anonymous post but want to claim it, all you need is the post's
 
 ```
 post = c.claimPost('7qmni7cpg5sjks11', '123456789abcdefgthisisfakeposttoken')
+print post
 
 # This will return the post's data
 ```
@@ -112,6 +117,7 @@ All you need is a collection alias and title.
 
 ```
 collection = c.createCollection('collectionalias', 'My Cool Blog')
+print collection
 
 # This will return the collection's data
 # Keep the collection's alias at hand: it will be a token for making requests with the collection
@@ -122,6 +128,7 @@ All you need is the collection's alias.
 
 ```
 collection = c.retrieveCollection('collectionalias')
+pritnt collection
 
 # This will return the collection's data
 ```
@@ -131,6 +138,7 @@ All you need is the collection's alias.
 
 ```
 delete = c.deleteCollection('collectionalias')
+print delete
 
 # This will return a 'None', meaning it was successfully deleted
 ```
@@ -140,6 +148,7 @@ To retrieve a collection post, all you need is the collection's alias and the po
 
 ```
 post = c.retrieveCPost('matt', 'stepping-back')
+print post
 
 # This will return the post's data 
 ```
@@ -149,6 +158,7 @@ To get a collection's posts, all you need is the collection's alias. So if I wan
 
 ```
 posts = c.retrieveCPosts('matt')
+print posts
 
 # This will return data from all the collection's posts
 ```
@@ -158,7 +168,7 @@ posts = c.retrieveCPosts('matt')
 _Retrieve User:_
 
 ```
-me = c.retrieve_user()
+me = c.retrieveUser()
 print me
 
 # Returns your user info 
