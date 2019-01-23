@@ -1,6 +1,6 @@
 import requests
 import json
-from settings import URI, POST_URI, COLL_URI, ME_URI,
+from uri import URI, POST_URI, COLL_URI, ME_URI,
 
 class NewClient(object):
     def __init__(self):
