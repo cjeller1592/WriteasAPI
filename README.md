@@ -1,11 +1,38 @@
-# Writeas.py
-An API client library for [Write.as](https://write.as) written for Python.
-
-## **Authentication**
-
-_Getting Started:_
+# Writeas API
+An unofficial [Write.as](https://write.as) API client library for Python.
 
 ```
+pip install writeasapi
+```
+
+## **Getting Started**
+
+_Importing and Instanstiating:_
+Each request to the API will be made through an instance of the NewClient class. You can instantiate in two ways:
+
+```
+import writeas
+
+c = writeas.NewClient()
+
+```
+or...
+
+```
+from writeas import NewClient
+
+c = NewClient()
+
+# It is up to you really! This way may also be best for saving memory in a project that you aren't simply running locally
+```
+
+
+_Logging in and Setting Token:_
+Make sure to login and set the token, otherwise certain authorized requests will not be possible.
+
+```
+from writeas import NewClient
+
 c = NewClient()
 
 c.login("username", "password")
