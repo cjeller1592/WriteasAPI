@@ -108,7 +108,9 @@ class NewClient(object):
 
         try:
             p = requests.post(POST_URI, data=json.dumps(data),
-                    headers={"Content-Type":"application/json"})
+                    headers={"Authorization": "Token %s" % self.token,
+                             "Content-Type":"application/json"})
+            
         except Exception as e:
             print("create_post: Exception %s" % e)
             return e
