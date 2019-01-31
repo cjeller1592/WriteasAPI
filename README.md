@@ -93,7 +93,7 @@ _Retrieving a Post:_
 For finding a post, all you need is the post's id.
 
 ```
-post = c.findPost('7qmni7cpg5sjks11')
+post = c.retrievePost('7qmni7cpg5sjks11')
 print post
 
 # This will return the post's data
