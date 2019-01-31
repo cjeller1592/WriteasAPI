@@ -60,7 +60,7 @@ c.logout("00000000-0000-0000-0000-000000000000")
 _Creating a post:_
 
 ```
-p = c.create_post("This is a the body of the post.", "This is a Title")
+p = c.createPost("This is a the body of the post.", "This is a Title")
 print p
 
 # This will return the post's data when successful
@@ -82,7 +82,7 @@ _Deleting a Post:_
 Since you are logged in, all you need is the post's id.
 
 ```
-delete = c.delete_post('7qmni7cpg5sjks11')
+delete = c.deletePost('7qmni7cpg5sjks11')
 print delete
 
 # This will return a 'None', meaning that it worked
@@ -93,7 +93,7 @@ _Retrieving a Post:_
 For finding a post, all you need is the post's id.
 
 ```
-post = c.find_post('7qmni7cpg5sjks11')
+post = c.findPost('7qmni7cpg5sjks11')
 print post
 
 # This will return the post's data
