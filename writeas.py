@@ -102,7 +102,7 @@ class NewClient(object):
         return uchannels
 
 
-    def createPost(self, body, title):
+    def createPost(self, body, title=None):
         data = {"body": body,
                 "title": title}
 
@@ -133,13 +133,13 @@ class NewClient(object):
 
         return post
 
-    def updatePost(self, id, token, body):
-        data = {"token": token,
-                "body": body}
+    def updatePost(self, id, **kwargs):
+        data = json.dumps(kwargs)
 
         try:
-            p = requests.post(POST_URI + "/%s" % id, data=json.dumps(data),
-                headers={"Content-Type":"application/json"})
+            p = requests.post(POST_URI + "/%s" % id, data=data,
+            headers={"Authorization": "Token %s" % self.token,
+                    "Content-Type":"application/json"})
 
         except Exception as e:
             print("update_post: Exception %s" % e)
@@ -235,6 +235,24 @@ class NewClient(object):
         collection = c.json()["data"]
 
         return collection
+    
+    def createCPost(self, alias, body, title=None):
+
+        data = {"body": body,
+                "title": title}
+
+        try:
+            p = requests.post(COLL_URI + "/%s/posts" % alias, data=json.dumps(data),
+                headers={"Authorization": "Token %s" % self.token,
+                        "Content-Type": "application/json"})
+
+        except Exception as e:
+            print("retrieve_collection: Exception %s" % e)
+            return e
+
+        post = p.json()["data"]
+
+        return post
 
     def retrieveCPost(self, alias, slug):
 
