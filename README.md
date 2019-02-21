@@ -57,22 +57,31 @@ c.logout("00000000-0000-0000-0000-000000000000")
 
 ## **Posts**
 
-_Creating a post:_
+_Creating an annonymous post:_
+To create a post, all you need is a body. The title is optional!
 
 ```
-p = c.createPost("This is a the body of the post.", "This is a Title")
+p = c.createPost('This is a the body of the post.', 'This is a Title')
 print p
 
 # This will return the post's data when successful
 # That data includes the post token which we'll need for doing cooling stuff with the post
 ```
+_Creating a collection post:_
+To create a collection post, all you need to add is the collection's alias to the above code.
+```
+post = c.createCPost('cjeller', 'This is a the body of the post.', 'This is a Title')
+print post
+
+# This will return the post's data 
+```
+
 
 _Updating a Post:_
-All you need is the post's id, the post's token, and the part of the post you want to edit.
-For now it is set to edit the post body only.
+All you need is the post's id and the parts of the post you want to edit. Since the updated part argument is set to kwargs in the code, be precise.
 
 ```
-update = c.updatePost('7qmni7cpg5sjks11', '123456789abcdefgthisisfakeposttoken', 'I am updating this post's body!')
+update = c.updatePost('7qmni7cpg5sjks11', body='I am updating this post's body!', title='Title Update!')
 print update
 
 # This will return the post's updated data when successful
