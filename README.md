@@ -1,6 +1,9 @@
 # Writeas API
 An unofficial [Write.as](https://write.as) API client library for Python.
 
+_TODO:_
+- Have the ability to retrieve posts within a collection that have certain tags
+
 ```
 pip install writeasapi
 ```
