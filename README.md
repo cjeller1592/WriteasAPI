@@ -3,7 +3,7 @@ An unofficial [Write.as](https://write.as) API client library for Python.
 
 _TODO:_
 - Proper exception handling
-- Have the ability to retrieve posts within a collection that have certain tags
+- Have the ability to retrieve posts within a collection that have certain tags (testing in tags.py)
 
 ```
 pip install writeasapi
