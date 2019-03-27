@@ -2,6 +2,7 @@
 An unofficial [Write.as](https://write.as) API client library for Python.
 
 _TODO:_
+- Include method for read.write.as endpoint
 - Proper exception handling
 - Have the ability to retrieve posts within a collection that have certain tags (testing in tags.py)
 
