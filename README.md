@@ -1,14 +1,13 @@
 # Writeas API
 An unofficial [Write.as](https://write.as) API client library for Python.
 
-_TODO:_
-- Include method for read.write.as endpoint
-- Proper exception handling
-- Have the ability to retrieve posts within a collection that have certain tags (testing in tags.py)
-
 ```
 pip install writeasapi
 ```
+_TODO:_
+- ~~Include method for read.write.as endpoint~~
+- Proper exception handling
+- Have the ability to retrieve posts within a collection that have certain tags (testing in tags.py)
 
 ## **Getting Started**
 
@@ -212,4 +211,26 @@ myChannels = c.retrieveChannels()
 print myChannels
 
 # Returns the channels you send your posts to (Tumblr, Medium, etc)
+```
+
+## **Read.write.as**
+
+[Read.write.as](https://read.write.as) is a way to read Write.as posts from writers who have their blogs set for public display. Think of it as a feed of interesting writing.
+
+_Retrieve Read.write.as Posts:_
+
+```
+rwaPosts = c.rwa()
+print rwaPosts
+
+# Returns 10 of the most recent Read.write.as posts
+# Metadata is similar to retrieving a collection
+```
+The only argument available is skip. This is specifies the number of posts to skip, for implementing pagination:
+
+```
+rwaPosts = c.rwa(2)
+print rwaPosts
+
+# Returns 10 Read.write.as post, skipping the 2 most recent
 ```
