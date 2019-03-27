@@ -367,6 +367,21 @@ class NewClient(object):
         post = p.json()["data"]
 
         return post
+    
+    def rwa(self, skip):
+        
+        params = {"skip": skip}
+
+        try:
+            p = requests.get(RWA_URI, params=params)
+
+        except Exception as e:
+            print("rwa: Exception %s" % e)
+            return e
+
+        posts = p.json()["data"]
+
+        return posts
 
 
 
