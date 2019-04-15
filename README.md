@@ -4,6 +4,17 @@ An unofficial [Write.as](https://write.as) API client library for Python.
 ```
 pip install writeasapi
 ```
+### Version 0.1.7
+- Pagination for retrieving a collection's posts
+- Access to [Read.write.as](https://read.write.as) API endpoint
+- Adding title now optional for creating an annonymous or collection post
+
+If need be, please update to this latest version
+
+```
+pip install --upgrade writeasapi
+```
+
 _TODO:_
 - ~~Include method for read.write.as endpoint~~
 - Proper exception handling
@@ -174,6 +185,14 @@ posts = c.retrieveCPosts('matt')
 print posts
 
 # This will return data from all the collection's posts
+```
+NOTE - This method only returns the first 10 posts of a collection. If you want to access more than the first 10 posts, use the optional pagination argument:
+
+```
+posts = c.retrieveCPosts('matt', 2)
+
+# Returns >= 10 posts from that page
+# If there are no posts on a selected page it will return an empty list
 ```
 
 ## **User**
