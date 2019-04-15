@@ -268,10 +268,11 @@ class NewClient(object):
 
         return cpost
 
-    def retrieveCPosts(self, alias):
-
+    def retrieveCPosts(self, alias, page=1):
+        
         try:
-            c = requests.get(COLL_URI + "/%s/posts" % alias)
+            c = requests.get(COLL_URI + "/%s/posts" % alias,
+                            params={'page': page})
 
         except Exception as e:
             print("retrieve_cposts: Exception %s" % e)
