@@ -24,7 +24,7 @@ _TODO:_
 ## **Getting Started**
 
 _Importing and Instanstiating:_
-Each request to the API will be made through an instance of the NewClient class. You can instantiate in two ways:
+Each request to the API will be made through an instance of the client class. You can instantiate in two ways:
 
 ```
 import writeas
@@ -61,7 +61,7 @@ c.setToken("00000000-0000-0000-0000-000000000000")
 ```
 
 _Logging Out:_
-To log out, all you need is call the method
+To log out, all you need is call the method.
 
 ```
 c.logout()
@@ -220,7 +220,7 @@ print(myChannels)
 
 ## **Read.write.as**
 
-[Read.write.as](https://read.write.as) is a way to read Write.as posts from writers who have their blogs set for public display. Think of it as a feed of interesting writing.
+[Read.write.as](https://read.write.as) is a way to read Write.as posts from writers who have their posts/blogs set for public display. Think of it as a feed for all kinds of writing.
 
 _Retrieve Read.write.as Posts:_
 
@@ -231,11 +231,11 @@ print(rwaPosts)
 # Returns 10 of the most recent Read.write.as posts
 # Metadata is similar to retrieving a collection
 ```
-The only argument available is skip. This is specifies the number of posts to skip, for implementing pagination:
+The only argument available is skip. This specifies the number of posts to skip. Think of it as pagination:
 
 ```
-rwaPosts = c.rwa(2)
+rwaPosts = c.rwa(10)
 print(rwaPosts)
 
-# Returns 10 Read.write.as post, skipping the 2 most recent
+# Returns 10 Read.write.as post, skipping the 10 most recent
 ```
