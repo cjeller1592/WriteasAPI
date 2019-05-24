@@ -4,13 +4,13 @@ An unofficial [Write.as](https://write.as) API client library for Python.
 ```
 pip install writeasapi
 ```
-### Version 0.1.8
+### Version 0.1.9
 - Updated class and module structure (cleaner and easier to read)
 - More verbose exception handling using built in Write.as API responses
 - Ability to now properly log off and delete posts/collections
 - Access to Read.write.as API endpoint
 
-If you have < 0.1.8, please update to this latest version. Otherwise you might run into issues.
+If you have a version < 0.1.9, please update to this latest version. Otherwise you might run into issues.
 
 ```
 pip install --upgrade writeasapi
