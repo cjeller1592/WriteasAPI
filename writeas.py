@@ -52,8 +52,8 @@ class client():
         post = self.p.get(id)
         return post
 
-    def createPost(self, body, title=None):
-        post = self.p.post(self.token, body, title)
+    def createPost(self, body, title=None, **kwargs):
+        post = self.p.post(self.token, body, title, **kwargs)
         return post
 
     def updatePost(self, id, **kwargs):
@@ -89,8 +89,8 @@ class client():
         cposts = self.c.getCPs(alias)
         return cposts
 
-    def createCPost(self, alias, body, title=None):
-        cpost = self.c.createCP(self.token, alias, body, title)
+    def createCPost(self, alias, body, title=None, **kwargs):
+        cpost = self.c.createCP(self.token, alias, body, title, **kwargs)
         return cpost
 
     def claimCPost(self, alias, id):
