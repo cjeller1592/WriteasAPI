@@ -4,13 +4,16 @@ An unofficial [Write.as](https://write.as) API client library for Python.
 ```
 pip install writeasapi
 ```
-### Version 0.1.9
+### Version 0.1.9.2
+- Ability to use other arguments such as created date when creating an anonymous or collection post (this is great if you are using the library to import blog posts)
+
+#### From 0.1.9.0 on...
 - Updated class and module structure (cleaner and easier to read)
 - More verbose exception handling using built in Write.as API responses
 - Ability to now properly log off and delete posts/collections
 - Access to Read.write.as API endpoint
 
-If you have a version < 0.1.9, please update to this latest version. Otherwise you might run into issues.
+If you have a version < 0.1.9.2, please update to this latest version. Otherwise you might run into issues.
 
 ```
 pip install --upgrade writeasapi
@@ -86,15 +89,20 @@ _Creating an Annonymous Post:_
 To create a post, all you need is a body. The title is optional!
 
 ```
-p = c.createPost('This is a the body of the post.', 'This is a Title')
+p = c.createPost('This is the body of the post.', 'This is a Title')
 print p
 
 # This will return the post's data when successful
-# That data includes the post token which we'll need for doing cooling stuff with the post
+# Thatdata includes the post token which we'll need for doing cooling stuff with the post
+```
+Feel free to use extra kwargs to your post like created date and right-to-left. Feel free to look at additional args [here](https://developers.write.as/docs/api/#publish-a-post):
+
+```
+p = c.createPost('This is the body of the post.', 'This is a Title', created='2018-11-26T18:32:19Z')
 ```
 
 _Creating a Collection Post:_
-To create a collection post, all you need to add is the collection's alias to the above code.
+To create a collection post, all you need to add is the collection's alias to the above code. The addition args act the same as above.
 
 ```
 p = c.createCPost('cjeller', 'This is a the body of the post.', 'This is a Title')
