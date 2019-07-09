@@ -64,10 +64,14 @@ class collection(object):
             cposts = c.json()["data"]
             return cposts
 
-    def createCP(self, token, alias, body, title=None):
+    def createCP(self, token, alias, body, title=None, **kwargs):
 
-        data = {"body": body,
-                "title": title}
+        d = {"body": body,
+             "title": title}
+        
+        k = kwargs
+        
+        data = {**d, **k}
 
         p = requests.post(COLL_URI + "/%s/posts" % alias, data=json.dumps(data),
             headers={"Authorization": "Token %s" % token,
