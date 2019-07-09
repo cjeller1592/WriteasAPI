@@ -32,14 +32,17 @@ class post(object):
             post = p.json()
             return post
 
-    def post(self, token, body, title):
-
-        data = {"body": body,
-                "title": title}
+    def post(self, token, body, title, **kwargs):
+        d = {"body": body,
+             "title": title}
+        
+        k = kwargs
+        
+        data = {**d, **k}
 
         p = requests.post(POST_URI, data=json.dumps(data),
-                    headers={"Authorization": "Token %s" % token,
-                        "Content-Type":"application/json"})
+            headers={"Authorization": "Token %s" % token,
+                     "Content-Type":"application/json"})
 
         if p.status_code != 201:
             return "Error in createPost(): %s" % p.json()["error_msg"]
